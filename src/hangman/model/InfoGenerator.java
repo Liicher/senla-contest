@@ -16,11 +16,18 @@ public class InfoGenerator {
 			'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'
 	};
 
-	private static List<Character> alphabet = new ArrayList<>();
-
 	public char[] getRandomWordFromDictionary() {
 		// Получаем массив строк из нашего "словаря" со словами
 		String[] answers = Dictionary.getWordsFromDictionaryFile("src/hangman/resources/dictionaryFileRu");
+		if (answers.length == 0) {
+			System.out.println("Возникла проблемка со словарем :(");
+			System.out.println("Будет взято слово из заготовленных в программе :D");
+			answers = new String[] {
+					"чашка", "книга", "столик", "цветок", "домик",
+					"окно", "мышка", "дорога", "ключик", "лампа",
+					"сумка", "картина", "ручка", "шляпа", "мячик"
+			};
+		}
 
 		// Проверяем, что слово подходит под критерии/условия игры
 		String randomWord = null;
@@ -34,9 +41,5 @@ public class InfoGenerator {
 		List<Character> letters = new ArrayList<>();
 		Collections.addAll(letters, alphabetRu);
 		return letters;
-	}
-
-	public static List<Character> getAlphabet() {
-		return alphabet;
 	}
 }

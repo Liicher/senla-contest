@@ -8,8 +8,7 @@ public class Messages {
 	public static void starterMessage() {
 		System.out.println( "Введите:\n" +
 							"\"Д\" - Для начала игры!\n" +
-							"\"В\" - Для выхода из игры!\n" +
-							"\"С\" - Редактировать словарь!");
+							"\"В\" - Для выхода из игры!\n");
 	}
 
 	public static void midGameMessage() {

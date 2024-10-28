@@ -17,6 +17,7 @@ public class Dictionary {
 			String allText = String.join(" ", lines);
 
 			// Разделяем текст на слова, используя регулярное выражение
+			// "//W+" не хочет работать
 			String[] words = allText.split(" ");
 			return words;
 		} catch (IOException e) {
