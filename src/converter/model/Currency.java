@@ -10,10 +10,10 @@ public class Currency {
 		// Вводим фиксированные курсы обмена валют
 		exchangeRates = new HashMap<>();
 		exchangeRates.put("USD", 1.0); // Базовая валюта - USD
-		exchangeRates.put("EUR", 0.85);
-		exchangeRates.put("GBP", 0.75);
+		exchangeRates.put("EUR", 0.90);
+		exchangeRates.put("AED", 3.60);
 		exchangeRates.put("JPY", 110.0);
-		exchangeRates.put("RUB", 75.0);
+		exchangeRates.put("RUB", 100.0);
 	}
 
 	public double convert(double amount, String fromCurrency, String toCurrency) {
