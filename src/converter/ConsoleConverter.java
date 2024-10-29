@@ -12,18 +12,30 @@ public class ConsoleConverter {
 
 		converter.displayExchangeRates();
 
-		System.out.print("Введите валюту, из которой конвертируете (USD, EUR, GBP, JPY, RUB): ");
-		String fromCurrency = scanner.next().toUpperCase();
+		String fromCurrency = "";
+		String amountStr = "";
+		String toCurrency = "";
 
-		System.out.print("Введите сумму для конвертации: ");
-		double amount = scanner.nextDouble();
+		while (!converter.checkCurrencyInput(fromCurrency)) {
+			System.out.print("Введите валюту, из которой конвертируете (USD, EUR, GBP, JPY, RUB): ");
+			fromCurrency = scanner.next().toUpperCase();
+		}
 
-		System.out.print("Введите валюту, в которую конвертируете (USD, EUR, GBP, JPY, RUB): ");
-		String toCurrency = scanner.next().toUpperCase();
+		while (!converter.checkValueInput(amountStr)) {
+			System.out.print("Введите сумму для конвертации: ");
+			amountStr = scanner.nextLine();
+		}
+		double amount = Integer.parseInt(amountStr);
+
+		while (!converter.checkCurrencyInput(toCurrency)) {
+			System.out.print("Введите валюту, в которую конвертируете (USD, EUR, GBP, JPY, RUB): ");
+			toCurrency = scanner.next().toUpperCase();
+		}
 
 		try {
 			double convertedAmount = converter.convert(amount, fromCurrency, toCurrency);
 			System.out.printf("Сумма %.2f %s равна %.2f %s%n", amount, fromCurrency, convertedAmount, toCurrency);
+			System.out.printf("Сумма " + amount + " " + fromCurrency + " равна " + convertedAmount + " " + toCurrency);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		} finally {

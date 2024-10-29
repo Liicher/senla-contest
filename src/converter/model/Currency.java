@@ -31,4 +31,24 @@ public class Currency {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
 	}
+
+	public boolean checkValueInput(String input) {
+		if (!input.isEmpty() && input.matches("\\d+")) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean checkCurrencyInput(String input) {
+		if (input.isEmpty()) {
+			return false;
+		}
+
+		for (Map.Entry<String, Double> entry : exchangeRates.entrySet()) {
+			if (input.equals(entry.getKey())) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
