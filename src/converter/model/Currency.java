@@ -16,7 +16,7 @@ public class Currency {
 		exchangeRates.put("RUB", 100.0);
 	}
 
-	public double convert(double amount, String fromCurrency, String toCurrency) {
+	public double convertCurrency(double amount, String fromCurrency, String toCurrency) {
 		if (!exchangeRates.containsKey(fromCurrency) || !exchangeRates.containsKey(toCurrency)) {
 			throw new IllegalArgumentException("Некорректная валюта для конвертации");
 		}

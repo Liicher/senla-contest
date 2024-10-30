@@ -6,31 +6,31 @@ public class ConsoleConverter {
 
 	public void run() {
 		Scanner scanner = new Scanner(System.in);
-		Currency converter = new Currency();
+		Currency currency = new Currency();
 
-		converter.displayExchangeRates();
+		currency.displayExchangeRates();
 		String fromCurrency = "";
 		String amountStr = "";
 		String toCurrency = "";
 
-		while (!converter.checkCurrencyInput(fromCurrency)) {
+		while (!currency.checkCurrencyInput(fromCurrency)) {
 			System.out.print("Введите валюту, из которой конвертируете (USD, EUR, RUB, JPY, AED): ");
 			fromCurrency = scanner.next().toUpperCase();
 		}
 
-		while (!converter.checkValueInput(amountStr)) {
+		while (!currency.checkValueInput(amountStr)) {
 			System.out.print("Введите сумму для конвертации: ");
 			amountStr = scanner.next();
 		}
 		double amount = Integer.parseInt(amountStr);
 
-		while (!converter.checkCurrencyInput(toCurrency)) {
+		while (!currency.checkCurrencyInput(toCurrency)) {
 			System.out.print("Введите валюту, в которую конвертируете (USD, EUR, RUB, JPY, AED): ");
 			toCurrency = scanner.next().toUpperCase();
 		}
 
 		try {
-			double convertedAmount = converter.convert(amount, fromCurrency, toCurrency);
+			double convertedAmount = currency.convertCurrency(amount, fromCurrency, toCurrency);
 			System.out.printf("Сумма %.2f %s равна %.2f %s", amount, fromCurrency, convertedAmount, toCurrency);
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
