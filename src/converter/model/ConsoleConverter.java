@@ -1,6 +1,4 @@
-package converter;
-
-import converter.model.Currency;
+package converter.model;
 
 import java.util.Scanner;
 

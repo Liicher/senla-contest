@@ -31,6 +31,7 @@ public class ConsoleHangman {
 		} else if (!session.checkAttempts()) {
 			Messages.messageLostTemplate();
 		}
+		session.printAnswer();
 	}
 
 	private char inputLetter() {

@@ -60,6 +60,10 @@ public class Session {
 		return alphabet;
 	}
 
+	public void printAnswer() {
+		System.out.println("Загаданное слово - " +  String.copyValueOf(answer));
+	}
+
 	public char[] getAnswer() {
 		return answer;
 	}

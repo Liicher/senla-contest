@@ -1,4 +1,4 @@
-package password;
+package password.model;
 
 import java.util.Scanner;
 
